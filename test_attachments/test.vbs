@@ -1,0 +1,2 @@
+' Test VBS
+MsgBox 'Test'
