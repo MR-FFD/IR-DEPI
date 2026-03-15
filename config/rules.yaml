@@ -1,0 +1,25 @@
+analysis:
+  risk_thresholds:
+    low: 20
+    medium: 50
+    high: 80
+indicators:
+  urgency_keywords:
+    - "urgent"
+    - "immediately"
+    - "suspended"
+    - "verify now"
+    - "action required"
+  suspicious_tlds:
+    - ".xyz"
+    - ".top"
+    - ".work"
+    - ".click"
+  legitimate_brands:
+    - "paypal.com"
+    - "microsoft.com"
+    - "apple.com"
+  free_providers:
+    - "@gmail.com"
+    - "@yahoo.com"
+    - "@hotmail.com"
