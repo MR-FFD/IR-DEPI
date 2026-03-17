@@ -1,0 +1,110 @@
+# IR-DEPI | Docker Compose Configuration
+# Production-ready setup with security best practices
+
+services:
+  # Main Application Container
+  ir-depi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ir-depi-app
+    restart: unless-stopped
+    
+    # Environment variables - loaded from .env file
+    env_file:
+      - .env
+    environment:
+      - PYTHONPATH=/app
+      - LOG_LEVEL=INFO
+    
+    # Volumes for persistent data
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+      # Mount .env as read-only for API keys
+      - ./.env:/app/.env:ro
+    
+    # Network configuration
+    networks:
+      - ir-depi-network
+    
+    # Security hardening
+    user: "1000:1000"
+    read_only: false
+    tmpfs:
+      - /tmp
+      - /var/tmp
+    
+    # Health check configuration
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # Resource limits (optional - adjust for production)
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+  # Optional: PostgreSQL Database (Uncomment for production)
+  # db:
+  #   image: postgres:15-alpine
+  #   container_name: ir-depi-db
+  #   restart: unless-stopped
+  #   environment:
+  #     - POSTGRES_USER=${DB_USER:-irdepi}
+  #     - POSTGRES_PASSWORD=${DB_PASSWORD:-changeme123}
+  #     - POSTGRES_DB=${DB_NAME:-irdepi}
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   networks:
+  #     - ir-depi-network
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-irdepi}"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+  #   ports:
+  #     - "5432:5432"  # Only expose if needed externally
+
+  # Optional: Adminer for Database Management (Development only)
+  # adminer:
+  #   image: adminer:latest
+  #   container_name: ir-depi-adminer
+  #   restart: unless-stopped
+  #   ports:
+  #     - "8080:8080"
+  #   networks:
+  #     - ir-depi-network
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     - ADMINER_DEFAULT_SERVER=db
+
+# Network configuration
+networks:
+  ir-depi-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+
+# Volumes for PostgreSQL (uncomment if using db service)
+# volumes:
+#   postgres_data:
+#     driver: local
