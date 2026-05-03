@@ -1,0 +1,28 @@
+From: "DHL Express" <delivery@dhl-tracking-notify.ml>
+To: "Valued Customer" <recipient@email.com>
+Subject: Package Delivery Failed - Immediate Action Required
+Date: Sat, 3 May 2026 13:20:00 +0000
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+Your package delivery attempt failed.
+
+The package will be returned to sender unless you confirm
+your delivery address immediately.
+
+Track your package: http://91.234.56.78/dhl-track
+
+To reschedule delivery, you must verify:
+- Full name and address
+- Credit card for customs fees ($2.99)
+- Phone number
+
+Click here now to confirm: http://91.234.56.78/confirm-delivery
+
+Failure to respond within 24 hours will result in package return.
+
+DHL Express Delivery
+dhl-tracking-notify.ml
+
+Tracking ID: DHL8829471634

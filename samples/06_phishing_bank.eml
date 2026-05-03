@@ -1,0 +1,30 @@
+From: "Bank Security" <alert@banking-verify.tk>
+To: "Dear Account Holder" <customer@mail.com>
+Subject: ACTION REQUIRED: Suspicious Login Detected
+Date: Fri, 2 May 2026 08:15:00 +0000
+Content-Type: text/plain; charset=utf-8
+
+Dear Account Holder,
+
+We detected a login attempt from an unrecognized device.
+
+Your account will be suspended immediately unless you verify
+your identity within the next 2 hours.
+
+Verify now: http://185.220.100.250/bank-login
+
+You must confirm the following information:
+- Username and password
+- Social Security Number
+- Credit card CVV code
+- Online banking PIN
+
+If you do not verify immediately, your account will be terminated
+and all funds will be frozen.
+
+Click here to secure your account: http://185.220.100.250/secure
+
+Bank Security Department
+banking-verify.tk
+
+This is an automated security alert. Do not reply.

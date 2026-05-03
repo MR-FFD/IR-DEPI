@@ -1,0 +1,32 @@
+# Build Output
+build/
+dist/
+*.spec
+
+# Logs
+*.log
+native.log
+
+# Reports
+reports/
+*.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
