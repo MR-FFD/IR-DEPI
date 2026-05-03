@@ -95,7 +95,7 @@ Layer 1: IP-Based URLs          40 pts  CRITICAL
   - Detects raw IP addresses in links
   
 Layer 2: Urgency Language       25 pts  HIGH
-  - Identifies pressure tactics (urgent, immediately, etc.)
+  - Identifies pressure tactics ( urgent, immediately, etc.)
   
 Layer 3: Suspicious Domains     15-35 pts  HIGH
   - Flags high-risk TLDs (.xyz, .tk, .ml, .ga, .cf, etc.)
